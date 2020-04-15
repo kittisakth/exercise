@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+route::get('/{id}', 'AlphabetController@detail_history')->name('show')->where('id', '[0-9]+');
 Route::get('/', 'AlphabetController@index')->name('home');
 Route::post('/', 'AlphabetController@count');
 Route::get('/history', 'AlphabetController@history')->name('history');
 route::view('/test', 'child');
-route::get('/{id}', 'AlphabetController@detail_history')->name('show');
+
 
