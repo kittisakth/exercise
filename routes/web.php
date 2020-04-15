@@ -13,5 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'AlphabetController@index');
+Route::get('/', 'AlphabetController@index')->name('home');
 Route::post('/', 'AlphabetController@count');
+Route::get('/history', 'AlphabetController@history')->name('history');
+route::view('/test', 'child');
+route::get('/{id}', 'AlphabetController@detail_history')->name('show');
+
