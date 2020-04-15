@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Count Character')
+@section('title', 'Count Result')
 @section('content')
 <div class="alert alert-success" role="alert">
   <h2 class="text-center">
