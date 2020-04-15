@@ -22,7 +22,7 @@ $ npm run dev
 ## Config Database
 Please config database by create .env file in root folder by copying .env.example file and change database config.
 
-Run migration and seeder
+##### Run migration and seeder
 ```
 $ php artisan migrate:fresh --seed
 ```
