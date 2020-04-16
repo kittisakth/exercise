@@ -18,8 +18,21 @@ class HistorySeeder extends Seeder
         $his1->sentence = "Test Sentence";
         $his2->sentence = "This is my sentence";
         $his3->sentence = "I&I Group Public Company Limited";
-        $his1->insertHistory();
-        $his2->insertHistory();
-        $his3->insertHistory();
+        $his1->insertHistory(1);
+        $his2->insertHistory(1);
+        $his3->insertHistory(1);
+
+        foreach (range(0,10) as $n ) {
+            $his = new History();
+            $his->sentence = md5($n);
+            $his->insertHistory(2);
+        }
+
+        foreach (range(0,10) as $n ) {
+            $his = new History();
+            $his->sentence = md5($n);
+            $his->insertHistory(3);
+        }
+
     }
 }

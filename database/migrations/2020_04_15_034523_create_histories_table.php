@@ -15,11 +15,15 @@ class CreateHistoriesTable extends Migration
     public function up()
     {
         Schema::create('histories', function (Blueprint $table) {
-            $table->id()->autoIncrement();;
+            $table->id()->autoIncrement();
             $table->longText('sentence');
             $table->integer('alpha_count');
             $table->json('result')->default(new Expression('(JSON_ARRAY())'));
             $table->timestamps();
+        });
+
+        Schema::table('histories', function (Blueprint $table) {
+            $table->foreignId('user_id')->references('id')->on('users')->constrained()->onDelete('cascade');
         });
     }
 

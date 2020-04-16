@@ -7,7 +7,12 @@ use Illuminate\Http\Request;
 
 class AlphabetController extends Controller
 {
-    public function index() {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
+    public function insert() {
         return view('alphabet.index');
     }
 
@@ -18,17 +23,21 @@ class AlphabetController extends Controller
         $sentence = $request->input('sentence');
         $new_history = new history();
         $new_history->sentence = $sentence;
-        $id = $new_history->insertHistory();
+        $id = $new_history->insertHistory(Auth::user()->id);
         return redirect()->route('show', [ 'id' => $id]);
     }
 
     public function detail_history($id) {
-        $history = history::find($id);
-        return view('alphabet.count', $history->getCounting());
+        $history = history::getById($id);
+        if ($history) {
+            return view('alphabet.count', $history->getCounting());
+        } else {
+            abort(403, 'Access denied');
+        }
     }
 
     public static function history() {
-        $histories = history::get();
+        $histories = history::getHitories();
         return view('alphabet.history', [ "histories" => $histories]);
     }
 }

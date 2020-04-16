@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Count Character')
 @section('content')
+<div class="container">
   @if ($errors->any())
     @foreach ($errors->all() as $error)
     <div class="alert alert-danger">
@@ -9,7 +10,7 @@
     </div>
     @endforeach  
   @endif
-  <form action="" method="post">
+  <form action="{{ route('home') }}" method="post">
     @csrf
     <div class="form-group">
       <label for="sentence">Enter sentence here:</label>
@@ -17,5 +18,6 @@
     </div>
     <button type="submit" class="btn btn-primary">Count</button>
   </form>
+</div>
 @endsection
 
