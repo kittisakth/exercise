@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Auth::routes();
-Route::get('/', 'AlphabetController@history')->name('history');
+Route::get('/history', 'AlphabetController@history')->name('history');
+Route::get('/', function () {
+  return redirect()->route('history');
+});
 route::get('/count/{id}', 'AlphabetController@detail_history')->name('show')->where('id', '[0-9]+');
 Route::get('/count', 'AlphabetController@insert')->name('home');
 route::post('/count', 'AlphabetController@count');

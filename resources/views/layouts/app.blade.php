@@ -36,7 +36,7 @@
                         <li class="nav-item {{ (request()->is('count')) ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('home') }}">Count</a>
                         </li>
-                        <li class="nav-item {{ (request()->is('/')) ? 'active' : '' }}">
+                        <li class="nav-item {{ (request()->is('history')) ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('history') }}">History</a>
                         </li>
                     </ul>
