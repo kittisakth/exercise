@@ -49,7 +49,7 @@ class history extends Model
     }
 
     public function getCounting() {
-        return [ "alpha_counts" => json_decode($this->result), "total_alpha" => $this->alpha_count ];
+        return [ "alpha_counts" => json_decode($this->result), "total_alpha" => $this->alpha_count, "sentence" => $this->sentence ];
     }
 
     public static function getHitories() {

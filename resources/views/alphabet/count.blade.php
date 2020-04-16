@@ -4,7 +4,7 @@
 <div class="container">
   <div class="alert alert-success" role="alert">
     <h2 class="text-center">
-      I can se your voice.
+      {{ $sentence }}
     </h2>
   </div>
   <table class="table">
