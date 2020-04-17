@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Auth::routes();
+
+route::get('/profile', 'ProfileController@show')->name('profile');
+route::post('/profile', 'ProfileController@update')->name('update_profile');
+route::get('/profile/{id}', 'ProfileController@detail')->name('profile_detail');
+route::get('users', 'UsersController@all')->name('users');
 Route::get('/history', 'AlphabetController@history')->name('history');
 Route::get('/', function () {
   return redirect()->route('history');
